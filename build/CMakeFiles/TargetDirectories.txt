@@ -1,0 +1,3 @@
+/home/kami/Documents/projekty/cpp/OpenGL Linux/build/CMakeFiles/OpenGL_Demo.dir
+/home/kami/Documents/projekty/cpp/OpenGL Linux/build/CMakeFiles/edit_cache.dir
+/home/kami/Documents/projekty/cpp/OpenGL Linux/build/CMakeFiles/rebuild_cache.dir
