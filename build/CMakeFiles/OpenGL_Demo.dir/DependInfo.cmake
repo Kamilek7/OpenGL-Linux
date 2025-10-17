@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/kami/Documents/projekty/cpp/OpenGL Linux/src/glad.c" "CMakeFiles/OpenGL_Demo.dir/src/glad.c.o" "gcc" "CMakeFiles/OpenGL_Demo.dir/src/glad.c.o.d"
   "/home/kami/Documents/projekty/cpp/OpenGL Linux/src/main.cpp" "CMakeFiles/OpenGL_Demo.dir/src/main.cpp.o" "gcc" "CMakeFiles/OpenGL_Demo.dir/src/main.cpp.o.d"
+  "/home/kami/Documents/projekty/cpp/OpenGL Linux/src/shaders.cpp" "CMakeFiles/OpenGL_Demo.dir/src/shaders.cpp.o" "gcc" "CMakeFiles/OpenGL_Demo.dir/src/shaders.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

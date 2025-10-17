@@ -12,6 +12,7 @@ include_directories(include)
 add_executable(OpenGL_Demo 
     src/main.cpp
     src/glad.c
+    src/shaders.cpp
 )
 
 target_link_libraries(OpenGL_Demo PRIVATE OpenGL::GL glfw)

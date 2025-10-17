@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/OpenGL_Demo.dir/src/glad.c.o.d"
   "CMakeFiles/OpenGL_Demo.dir/src/main.cpp.o"
   "CMakeFiles/OpenGL_Demo.dir/src/main.cpp.o.d"
+  "CMakeFiles/OpenGL_Demo.dir/src/shaders.cpp.o"
+  "CMakeFiles/OpenGL_Demo.dir/src/shaders.cpp.o.d"
   "OpenGL_Demo"
   "OpenGL_Demo.pdb"
 )
