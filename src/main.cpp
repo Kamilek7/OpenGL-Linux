@@ -1,6 +1,9 @@
 #include "shaders.h"
+#include "VAO.h"
+#include "EBO.h"
 
 #include <math.h>
+
 
 void resizeCallback(GLFWwindow* window, int width, int height)
 {
@@ -52,35 +55,30 @@ int main()
 		5, 4, 1 // Lower right triangle
 	};
 
-    GLuint VAO, VBO, EBO;
+    VAO vao;
+    vao.bind();
+    VBO vbo(vertices, sizeof(vertices));
+    EBO ebo(indices, sizeof(indices));
+    vao.linkVBO(vbo,0);
+    vao.unbind();
+    vbo.unbind();
+    ebo.unbind();
 
-    glGenVertexArrays(1, &VAO);
-    glGenBuffers(1, &VBO);
-    glGenBuffers(1, &EBO);
-
-    glBindVertexArray(VAO);
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-    glVertexAttribPointer(0,3, GL_FLOAT, GL_FALSE, 3*sizeof(float), (void*)0);
-    glEnableVertexAttribArray(0);
-
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-    glBindVertexArray(0);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
     while (!glfwWindowShouldClose(window)) {
         glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
-        glUseProgram(mainShaders.shaderProgram);
-        glBindVertexArray(VAO);
+        mainShaders.useShader();
+        vao.bind();
         glDrawElements(GL_TRIANGLES, 9, GL_UNSIGNED_INT, 0);
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
 
+    vao.remove();
+    vbo.remove();
+    ebo.remove();
+    mainShaders.deleteShader();
     glfwDestroyWindow(window);
     glfwTerminate();
     return 0;

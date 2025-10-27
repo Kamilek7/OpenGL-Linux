@@ -69,24 +69,10 @@ include CMakeFiles/OpenGL_Demo.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/OpenGL_Demo.dir/flags.make
 
-CMakeFiles/OpenGL_Demo.dir/src/main.cpp.o: CMakeFiles/OpenGL_Demo.dir/flags.make
-CMakeFiles/OpenGL_Demo.dir/src/main.cpp.o: /home/kami/Documents/projekty/cpp/OpenGL\ Linux/src/main.cpp
-CMakeFiles/OpenGL_Demo.dir/src/main.cpp.o: CMakeFiles/OpenGL_Demo.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/kami/Documents/projekty/cpp/OpenGL Linux/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/OpenGL_Demo.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/OpenGL_Demo.dir/src/main.cpp.o -MF CMakeFiles/OpenGL_Demo.dir/src/main.cpp.o.d -o CMakeFiles/OpenGL_Demo.dir/src/main.cpp.o -c "/home/kami/Documents/projekty/cpp/OpenGL Linux/src/main.cpp"
-
-CMakeFiles/OpenGL_Demo.dir/src/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/OpenGL_Demo.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/kami/Documents/projekty/cpp/OpenGL Linux/src/main.cpp" > CMakeFiles/OpenGL_Demo.dir/src/main.cpp.i
-
-CMakeFiles/OpenGL_Demo.dir/src/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/OpenGL_Demo.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/kami/Documents/projekty/cpp/OpenGL Linux/src/main.cpp" -o CMakeFiles/OpenGL_Demo.dir/src/main.cpp.s
-
 CMakeFiles/OpenGL_Demo.dir/src/glad.c.o: CMakeFiles/OpenGL_Demo.dir/flags.make
 CMakeFiles/OpenGL_Demo.dir/src/glad.c.o: /home/kami/Documents/projekty/cpp/OpenGL\ Linux/src/glad.c
 CMakeFiles/OpenGL_Demo.dir/src/glad.c.o: CMakeFiles/OpenGL_Demo.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/kami/Documents/projekty/cpp/OpenGL Linux/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/OpenGL_Demo.dir/src/glad.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/kami/Documents/projekty/cpp/OpenGL Linux/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/OpenGL_Demo.dir/src/glad.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/OpenGL_Demo.dir/src/glad.c.o -MF CMakeFiles/OpenGL_Demo.dir/src/glad.c.o.d -o CMakeFiles/OpenGL_Demo.dir/src/glad.c.o -c "/home/kami/Documents/projekty/cpp/OpenGL Linux/src/glad.c"
 
 CMakeFiles/OpenGL_Demo.dir/src/glad.c.i: cmake_force
@@ -96,6 +82,20 @@ CMakeFiles/OpenGL_Demo.dir/src/glad.c.i: cmake_force
 CMakeFiles/OpenGL_Demo.dir/src/glad.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/OpenGL_Demo.dir/src/glad.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/kami/Documents/projekty/cpp/OpenGL Linux/src/glad.c" -o CMakeFiles/OpenGL_Demo.dir/src/glad.c.s
+
+CMakeFiles/OpenGL_Demo.dir/src/main.cpp.o: CMakeFiles/OpenGL_Demo.dir/flags.make
+CMakeFiles/OpenGL_Demo.dir/src/main.cpp.o: /home/kami/Documents/projekty/cpp/OpenGL\ Linux/src/main.cpp
+CMakeFiles/OpenGL_Demo.dir/src/main.cpp.o: CMakeFiles/OpenGL_Demo.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/kami/Documents/projekty/cpp/OpenGL Linux/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/OpenGL_Demo.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/OpenGL_Demo.dir/src/main.cpp.o -MF CMakeFiles/OpenGL_Demo.dir/src/main.cpp.o.d -o CMakeFiles/OpenGL_Demo.dir/src/main.cpp.o -c "/home/kami/Documents/projekty/cpp/OpenGL Linux/src/main.cpp"
+
+CMakeFiles/OpenGL_Demo.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/OpenGL_Demo.dir/src/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/kami/Documents/projekty/cpp/OpenGL Linux/src/main.cpp" > CMakeFiles/OpenGL_Demo.dir/src/main.cpp.i
+
+CMakeFiles/OpenGL_Demo.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/OpenGL_Demo.dir/src/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/kami/Documents/projekty/cpp/OpenGL Linux/src/main.cpp" -o CMakeFiles/OpenGL_Demo.dir/src/main.cpp.s
 
 CMakeFiles/OpenGL_Demo.dir/src/shaders.cpp.o: CMakeFiles/OpenGL_Demo.dir/flags.make
 CMakeFiles/OpenGL_Demo.dir/src/shaders.cpp.o: /home/kami/Documents/projekty/cpp/OpenGL\ Linux/src/shaders.cpp
@@ -111,23 +111,71 @@ CMakeFiles/OpenGL_Demo.dir/src/shaders.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/OpenGL_Demo.dir/src/shaders.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/kami/Documents/projekty/cpp/OpenGL Linux/src/shaders.cpp" -o CMakeFiles/OpenGL_Demo.dir/src/shaders.cpp.s
 
+CMakeFiles/OpenGL_Demo.dir/src/VBO.cpp.o: CMakeFiles/OpenGL_Demo.dir/flags.make
+CMakeFiles/OpenGL_Demo.dir/src/VBO.cpp.o: /home/kami/Documents/projekty/cpp/OpenGL\ Linux/src/VBO.cpp
+CMakeFiles/OpenGL_Demo.dir/src/VBO.cpp.o: CMakeFiles/OpenGL_Demo.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/kami/Documents/projekty/cpp/OpenGL Linux/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/OpenGL_Demo.dir/src/VBO.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/OpenGL_Demo.dir/src/VBO.cpp.o -MF CMakeFiles/OpenGL_Demo.dir/src/VBO.cpp.o.d -o CMakeFiles/OpenGL_Demo.dir/src/VBO.cpp.o -c "/home/kami/Documents/projekty/cpp/OpenGL Linux/src/VBO.cpp"
+
+CMakeFiles/OpenGL_Demo.dir/src/VBO.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/OpenGL_Demo.dir/src/VBO.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/kami/Documents/projekty/cpp/OpenGL Linux/src/VBO.cpp" > CMakeFiles/OpenGL_Demo.dir/src/VBO.cpp.i
+
+CMakeFiles/OpenGL_Demo.dir/src/VBO.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/OpenGL_Demo.dir/src/VBO.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/kami/Documents/projekty/cpp/OpenGL Linux/src/VBO.cpp" -o CMakeFiles/OpenGL_Demo.dir/src/VBO.cpp.s
+
+CMakeFiles/OpenGL_Demo.dir/src/EBO.cpp.o: CMakeFiles/OpenGL_Demo.dir/flags.make
+CMakeFiles/OpenGL_Demo.dir/src/EBO.cpp.o: /home/kami/Documents/projekty/cpp/OpenGL\ Linux/src/EBO.cpp
+CMakeFiles/OpenGL_Demo.dir/src/EBO.cpp.o: CMakeFiles/OpenGL_Demo.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/kami/Documents/projekty/cpp/OpenGL Linux/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/OpenGL_Demo.dir/src/EBO.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/OpenGL_Demo.dir/src/EBO.cpp.o -MF CMakeFiles/OpenGL_Demo.dir/src/EBO.cpp.o.d -o CMakeFiles/OpenGL_Demo.dir/src/EBO.cpp.o -c "/home/kami/Documents/projekty/cpp/OpenGL Linux/src/EBO.cpp"
+
+CMakeFiles/OpenGL_Demo.dir/src/EBO.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/OpenGL_Demo.dir/src/EBO.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/kami/Documents/projekty/cpp/OpenGL Linux/src/EBO.cpp" > CMakeFiles/OpenGL_Demo.dir/src/EBO.cpp.i
+
+CMakeFiles/OpenGL_Demo.dir/src/EBO.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/OpenGL_Demo.dir/src/EBO.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/kami/Documents/projekty/cpp/OpenGL Linux/src/EBO.cpp" -o CMakeFiles/OpenGL_Demo.dir/src/EBO.cpp.s
+
+CMakeFiles/OpenGL_Demo.dir/src/VAO.cpp.o: CMakeFiles/OpenGL_Demo.dir/flags.make
+CMakeFiles/OpenGL_Demo.dir/src/VAO.cpp.o: /home/kami/Documents/projekty/cpp/OpenGL\ Linux/src/VAO.cpp
+CMakeFiles/OpenGL_Demo.dir/src/VAO.cpp.o: CMakeFiles/OpenGL_Demo.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/kami/Documents/projekty/cpp/OpenGL Linux/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/OpenGL_Demo.dir/src/VAO.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/OpenGL_Demo.dir/src/VAO.cpp.o -MF CMakeFiles/OpenGL_Demo.dir/src/VAO.cpp.o.d -o CMakeFiles/OpenGL_Demo.dir/src/VAO.cpp.o -c "/home/kami/Documents/projekty/cpp/OpenGL Linux/src/VAO.cpp"
+
+CMakeFiles/OpenGL_Demo.dir/src/VAO.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/OpenGL_Demo.dir/src/VAO.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/kami/Documents/projekty/cpp/OpenGL Linux/src/VAO.cpp" > CMakeFiles/OpenGL_Demo.dir/src/VAO.cpp.i
+
+CMakeFiles/OpenGL_Demo.dir/src/VAO.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/OpenGL_Demo.dir/src/VAO.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/kami/Documents/projekty/cpp/OpenGL Linux/src/VAO.cpp" -o CMakeFiles/OpenGL_Demo.dir/src/VAO.cpp.s
+
 # Object files for target OpenGL_Demo
 OpenGL_Demo_OBJECTS = \
-"CMakeFiles/OpenGL_Demo.dir/src/main.cpp.o" \
 "CMakeFiles/OpenGL_Demo.dir/src/glad.c.o" \
-"CMakeFiles/OpenGL_Demo.dir/src/shaders.cpp.o"
+"CMakeFiles/OpenGL_Demo.dir/src/main.cpp.o" \
+"CMakeFiles/OpenGL_Demo.dir/src/shaders.cpp.o" \
+"CMakeFiles/OpenGL_Demo.dir/src/VBO.cpp.o" \
+"CMakeFiles/OpenGL_Demo.dir/src/EBO.cpp.o" \
+"CMakeFiles/OpenGL_Demo.dir/src/VAO.cpp.o"
 
 # External object files for target OpenGL_Demo
 OpenGL_Demo_EXTERNAL_OBJECTS =
 
-OpenGL_Demo: CMakeFiles/OpenGL_Demo.dir/src/main.cpp.o
 OpenGL_Demo: CMakeFiles/OpenGL_Demo.dir/src/glad.c.o
+OpenGL_Demo: CMakeFiles/OpenGL_Demo.dir/src/main.cpp.o
 OpenGL_Demo: CMakeFiles/OpenGL_Demo.dir/src/shaders.cpp.o
+OpenGL_Demo: CMakeFiles/OpenGL_Demo.dir/src/VBO.cpp.o
+OpenGL_Demo: CMakeFiles/OpenGL_Demo.dir/src/EBO.cpp.o
+OpenGL_Demo: CMakeFiles/OpenGL_Demo.dir/src/VAO.cpp.o
 OpenGL_Demo: CMakeFiles/OpenGL_Demo.dir/build.make
 OpenGL_Demo: /usr/lib/x86_64-linux-gnu/libGL.so
 OpenGL_Demo: /usr/lib/x86_64-linux-gnu/libglfw.so.3.3
 OpenGL_Demo: CMakeFiles/OpenGL_Demo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/home/kami/Documents/projekty/cpp/OpenGL Linux/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable OpenGL_Demo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/home/kami/Documents/projekty/cpp/OpenGL Linux/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable OpenGL_Demo"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/OpenGL_Demo.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

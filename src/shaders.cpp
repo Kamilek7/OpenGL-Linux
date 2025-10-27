@@ -46,3 +46,12 @@ std::string Shaders::loadShaderSource(const std::string &filepath)
     buffer << file.rdbuf();
     return buffer.str();
 }
+
+void Shaders::useShader()
+{
+    glUseProgram(shaderProgram);
+}
+void Shaders::deleteShader()
+{
+    glDeleteProgram(shaderProgram);
+}

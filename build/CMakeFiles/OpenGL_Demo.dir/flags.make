@@ -5,13 +5,13 @@
 # compile CXX with /usr/bin/c++
 C_DEFINES = 
 
-C_INCLUDES = -I"/home/kami/Documents/projekty/cpp/OpenGL Linux/include"
+C_INCLUDES = -I"/home/kami/Documents/projekty/cpp/OpenGL Linux/include" -I"/home/kami/Documents/projekty/cpp/OpenGL Linux/src"
 
 C_FLAGS = 
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I"/home/kami/Documents/projekty/cpp/OpenGL Linux/include"
+CXX_INCLUDES = -I"/home/kami/Documents/projekty/cpp/OpenGL Linux/include" -I"/home/kami/Documents/projekty/cpp/OpenGL Linux/src"
 
 CXX_FLAGS = -std=gnu++17
 

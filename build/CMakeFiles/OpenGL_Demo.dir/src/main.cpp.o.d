@@ -162,6 +162,9 @@ CMakeFiles/OpenGL_Demo.dir/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
  /usr/include/c++/13/bits/fstream.tcc /usr/include/c++/13/sstream \
  /usr/include/c++/13/bits/sstream.tcc /usr/include/c++/13/iostream \
+ /home/kami/Documents/projekty/cpp/OpenGL\ Linux/src/VAO.h \
+ /home/kami/Documents/projekty/cpp/OpenGL\ Linux/src/VBO.h \
+ /home/kami/Documents/projekty/cpp/OpenGL\ Linux/src/EBO.h \
  /usr/include/c++/13/math.h /usr/include/c++/13/cmath /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \

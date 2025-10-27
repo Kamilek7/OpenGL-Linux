@@ -9,6 +9,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/kami/Documents/projekty/cpp/OpenGL Linux/src/glad.c" "CMakeFiles/OpenGL_Demo.dir/src/glad.c.o" "gcc" "CMakeFiles/OpenGL_Demo.dir/src/glad.c.o.d"
+  "/home/kami/Documents/projekty/cpp/OpenGL Linux/src/EBO.cpp" "CMakeFiles/OpenGL_Demo.dir/src/EBO.cpp.o" "gcc" "CMakeFiles/OpenGL_Demo.dir/src/EBO.cpp.o.d"
+  "/home/kami/Documents/projekty/cpp/OpenGL Linux/src/VAO.cpp" "CMakeFiles/OpenGL_Demo.dir/src/VAO.cpp.o" "gcc" "CMakeFiles/OpenGL_Demo.dir/src/VAO.cpp.o.d"
+  "/home/kami/Documents/projekty/cpp/OpenGL Linux/src/VBO.cpp" "CMakeFiles/OpenGL_Demo.dir/src/VBO.cpp.o" "gcc" "CMakeFiles/OpenGL_Demo.dir/src/VBO.cpp.o.d"
   "/home/kami/Documents/projekty/cpp/OpenGL Linux/src/main.cpp" "CMakeFiles/OpenGL_Demo.dir/src/main.cpp.o" "gcc" "CMakeFiles/OpenGL_Demo.dir/src/main.cpp.o.d"
   "/home/kami/Documents/projekty/cpp/OpenGL Linux/src/shaders.cpp" "CMakeFiles/OpenGL_Demo.dir/src/shaders.cpp.o" "gcc" "CMakeFiles/OpenGL_Demo.dir/src/shaders.cpp.o.d"
   )
