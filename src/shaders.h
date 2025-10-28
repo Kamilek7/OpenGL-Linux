@@ -15,6 +15,7 @@ public:
     
     Shaders(bool debugging=false);
     std::string loadShaderSource(const std::string& filepath);
+    GLuint getID() {return shaderProgram;}
     void useShader();
     void deleteShader();
 };
