@@ -24,6 +24,7 @@ add_executable(OpenGL_Demo
     src/VAO.cpp
     
 )
+
 target_include_directories(OpenGL_Demo PUBLIC src include)
 target_link_libraries(OpenGL_Demo PRIVATE glfw)
 
