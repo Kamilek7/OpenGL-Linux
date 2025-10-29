@@ -12,16 +12,15 @@ void resizeCallback(GLFWwindow* window, int width, int height)
 
 int main()
 {
+    
     if (!glfwInit()) 
     {
         std::cerr << "GLFW init fail\n";
         return -1;
     }
-
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
     GLFWwindow* window = glfwCreateWindow(800, 600, "OpenGL", nullptr, nullptr);
     if (!window) 
     {
@@ -31,9 +30,16 @@ int main()
     }
 
     glfwMakeContextCurrent(window);
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+        std::cerr << "Failed to initialize GLAD\n";
+        return -1;
+    }
+
     glfwSwapInterval(0);
     gladLoadGL();
     glfwSetFramebufferSizeCallback(window, resizeCallback);
+
+    std::cout << "urmom2" << std::endl;
 
     Shaders mainShaders;
 
@@ -54,6 +60,7 @@ int main()
 		3, 2, 4, // Upper triangle
 		5, 4, 1 // Lower right triangle
 	};
+
 
     VAO vao;
     vao.bind();

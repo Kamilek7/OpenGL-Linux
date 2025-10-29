@@ -2,13 +2,13 @@
 Shaders::Shaders(bool debugging)    
 {
     GLuint vertShader = glCreateShader(GL_VERTEX_SHADER);
-    std::string src = loadShaderSource("../src/default.vert");
+    std::string src = loadShaderSource("default.vert");
     const char* srcVert = src.c_str();
     glShaderSource(vertShader, 1, &srcVert, nullptr);
     glCompileShader(vertShader);
 
     GLuint fragShader = glCreateShader(GL_FRAGMENT_SHADER);
-    src = loadShaderSource("../src/default.frag");
+    src = loadShaderSource("default.frag");
     const char* srcFrag = src.c_str();
     glShaderSource(fragShader, 1, &srcFrag, nullptr);
     glCompileShader(fragShader);

@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/OpenGL_Demo.dir/src/glad.c.o CMakeFiles/OpenGL_Demo.dir/src/main.cpp.o CMakeFiles/OpenGL_Demo.dir/src/shaders.cpp.o CMakeFiles/OpenGL_Demo.dir/src/VBO.cpp.o CMakeFiles/OpenGL_Demo.dir/src/EBO.cpp.o CMakeFiles/OpenGL_Demo.dir/src/VAO.cpp.o -o OpenGL_Demo  /usr/lib/x86_64-linux-gnu/libGL.so /usr/lib/x86_64-linux-gnu/libglfw.so.3.3 
