@@ -15,11 +15,6 @@ find_package(OpenGL REQUIRED)
 
 FetchContent_MakeAvailable(glfw)
 
-include_directories(
-    include
-    src
-)
-
 add_executable(OpenGL_Demo 
     src/glad.c
     src/main.cpp
@@ -29,7 +24,7 @@ add_executable(OpenGL_Demo
     src/VAO.cpp
     
 )
-target_include_directories(OpenGL_Demo PUBLIC src)
+target_include_directories(OpenGL_Demo PUBLIC src include)
 target_link_libraries(OpenGL_Demo PRIVATE glfw)
 
 file(GLOB SHADER_FILES "${CMAKE_SOURCE_DIR}/src/*.vert" "${CMAKE_SOURCE_DIR}/src/*.frag")
