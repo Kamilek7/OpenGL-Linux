@@ -23,6 +23,7 @@ add_executable(OpenGL_Demo
     src/EBO.cpp
     src/VAO.cpp
     src/stb_image.cpp
+    src/texture.cpp
 )
 
 target_include_directories(OpenGL_Demo PUBLIC src include)
