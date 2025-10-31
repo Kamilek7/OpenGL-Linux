@@ -22,21 +22,21 @@ add_executable(OpenGL_Demo
     src/VBO.cpp
     src/EBO.cpp
     src/VAO.cpp
-    
+    src/stb_image.cpp
 )
 
 target_include_directories(OpenGL_Demo PUBLIC src include)
 target_link_libraries(OpenGL_Demo PRIVATE glfw)
 
-file(GLOB SHADER_FILES "${CMAKE_SOURCE_DIR}/src/*.vert" "${CMAKE_SOURCE_DIR}/src/*.frag")
+file(GLOB FILES "${CMAKE_SOURCE_DIR}/src/*.vert" "${CMAKE_SOURCE_DIR}/src/*.frag" "${CMAKE_SOURCE_DIR}/src/*.png")
 
-foreach(SHADER_FILE ${SHADER_FILES})
-    get_filename_component(SHADER_NAME ${SHADER_FILE} NAME)
+foreach(FILE ${FILES})
+    get_filename_component(NAME ${FILE} NAME)
     add_custom_command(
         TARGET OpenGL_Demo POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
-            ${SHADER_FILE}
-            $<TARGET_FILE_DIR:OpenGL_Demo>/${SHADER_NAME}
+            ${FILE}
+            $<TARGET_FILE_DIR:OpenGL_Demo>/${NAME}
     )
 endforeach()
 
