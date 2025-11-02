@@ -11,9 +11,15 @@ FetchContent_Declare(
     GIT_REPOSITORY https://github.com/glfw/glfw.git
     GIT_TAG        3.3.8
 )
+FetchContent_Declare(
+    glm
+    GIT_REPOSITORY https://github.com/g-truc/glm.git
+    GIT_TAG        1.0.1  # or whichever stable release you want
+)
 find_package(OpenGL REQUIRED)
 
-FetchContent_MakeAvailable(glfw)
+
+FetchContent_MakeAvailable(glfw glm)
 
 add_executable(OpenGL_Demo 
     src/glad.c
@@ -27,7 +33,7 @@ add_executable(OpenGL_Demo
 )
 
 target_include_directories(OpenGL_Demo PUBLIC src include)
-target_link_libraries(OpenGL_Demo PRIVATE glfw)
+target_link_libraries(OpenGL_Demo PRIVATE glfw glm)
 
 file(GLOB FILES "${CMAKE_SOURCE_DIR}/src/*.vert" "${CMAKE_SOURCE_DIR}/src/*.frag" "${CMAKE_SOURCE_DIR}/src/*.png")
 

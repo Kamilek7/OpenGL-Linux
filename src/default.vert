@@ -7,11 +7,13 @@ out vec3 color;
 
 out vec2 texCoord;
 
-uniform float scale;
+uniform mat4 model;
+uniform mat4 view;
+uniform mat4 proj;
 
 void main()
 {
     texCoord=aTex;
-    gl_Position = vec4(scale*aPos.x, scale*aPos.y, scale*aPos.z, 1.0);
+    gl_Position = proj*view*model*vec4(aPos, 1.0f);
     color = aColor;
 };
