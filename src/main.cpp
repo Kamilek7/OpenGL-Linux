@@ -2,9 +2,7 @@
 #include "EBO.h"
 #include <math.h>
 #include "texture.h"
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
+#include "camera.h"
 
 void resizeCallback(GLFWwindow* window, int width, int height)
 {
@@ -74,37 +72,30 @@ GLuint indices[] =
     vao.unbind();
     vbo.unbind();
     ebo.unbind();
+
     Texture l("tex.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
     l.texUnit(mainShaders, "tex0", 0);
-    float rotation = 0.0f;
-    double prevTime = glfwGetTime();
 
+    
     glEnable(GL_DEPTH_TEST);
 
+    Camera camera(glm::vec3(0.0f,0.0f, 2.0f));
+
+    double prevTime = glfwGetTime();
+
     while (!glfwWindowShouldClose(window)) {
+
+        double crnt = glfwGetTime();
+        while (crnt-prevTime < 1.0f/60.0f)
+            crnt = glfwGetTime();
+        prevTime=crnt;
         glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         mainShaders.useShader();
 
-        double crnt = glfwGetTime();
-        if (crnt-prevTime >= 1/60)
-        {
-            rotation+=0.05f;
-            prevTime = crnt;
-        }
-        glm::mat4 model = glm::mat4(1.0f);
-        glm::mat4 view = glm::mat4(1.0f);
-        glm::mat4 proj = glm::mat4(1.0f);
-        model = glm::rotate(model, glm::radians(rotation), glm::vec3(0.0f,1.0f, 0.0f));
-        view = glm::translate(view, glm::vec3(0.0f, -0.5f, -2.0f));
-        proj = glm::perspective(glm::radians(45.0f), (float)(WINDOW_WIDTH/WINDOW_HEIGHT), 0.1f, 100.0f);
-        int modelLoc = glGetUniformLocation(mainShaders.getID(), "model");
-        int viewLoc = glGetUniformLocation(mainShaders.getID(), "view");
-        int projLoc = glGetUniformLocation(mainShaders.getID(), "proj");
+        camera.inputs(window);
+        camera.matrix(45.0f, 0.1f, 100.0f, mainShaders, "camMatrix", WINDOW_WIDTH, WINDOW_HEIGHT);
 
-        glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-        glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
-        glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(proj));
         l.bind();
         vao.bind();
         glDrawElements(GL_TRIANGLES, sizeof(indices)/sizeof(int), GL_UNSIGNED_INT, 0);

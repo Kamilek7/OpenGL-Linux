@@ -30,6 +30,7 @@ add_executable(OpenGL_Demo
     src/VAO.cpp
     src/stb_image.cpp
     src/texture.cpp
+    src/camera.cpp
 )
 
 target_include_directories(OpenGL_Demo PUBLIC src include)
