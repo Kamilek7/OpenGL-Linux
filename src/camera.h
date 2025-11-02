@@ -19,13 +19,14 @@ public:
     glm::vec3 orientation = glm::vec3(0.0f, 0.0f, -1.0f);
     glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f);
 
+    bool firstClick;
     float speed = 0.1f;
     float sensitivity = 100.0f;
 
     Camera(glm::vec3 position);
 
     void matrix(float FOVdeg, float nearPlane, float farPlane, Shaders& shader, const char* uniform, int width, int height);
-    void inputs(GLFWwindow* window);
+    void inputs(GLFWwindow* window, int width, int height);
 };
 
 #endif

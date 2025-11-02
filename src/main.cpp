@@ -93,7 +93,7 @@ GLuint indices[] =
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         mainShaders.useShader();
 
-        camera.inputs(window);
+        camera.inputs(window, WINDOW_WIDTH, WINDOW_HEIGHT);
         camera.matrix(45.0f, 0.1f, 100.0f, mainShaders, "camMatrix", WINDOW_WIDTH, WINDOW_HEIGHT);
 
         l.bind();
