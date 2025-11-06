@@ -14,7 +14,7 @@ FetchContent_Declare(
 FetchContent_Declare(
     glm
     GIT_REPOSITORY https://github.com/g-truc/glm.git
-    GIT_TAG        1.0.1  # or whichever stable release you want
+    GIT_TAG        1.0.1 
 )
 find_package(OpenGL REQUIRED)
 
@@ -31,6 +31,7 @@ add_executable(OpenGL_Demo
     src/stb_image.cpp
     src/texture.cpp
     src/camera.cpp
+    src/mesh.cpp
 )
 
 target_include_directories(OpenGL_Demo PUBLIC src include)
