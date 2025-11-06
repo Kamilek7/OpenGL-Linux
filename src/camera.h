@@ -24,6 +24,7 @@ public:
     float speed = 0.1f;
     float sensitivity = 100.0f;
 
+    Camera() {}
     Camera(glm::vec3 position);
 
     void updateMat(float FOVdeg, float nearPlane, float farPlane, int width, int height);

@@ -12,7 +12,7 @@ class Shaders
 {
     GLuint shaderProgram;
 public:
-    
+    Shaders() {};
     Shaders(const std::string& vert, const std::string& frag, bool debugging=false);
     std::string loadShaderSource(const std::string& filepath);
     GLuint getID() {return shaderProgram;}

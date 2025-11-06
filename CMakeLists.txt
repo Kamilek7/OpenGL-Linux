@@ -16,10 +16,20 @@ FetchContent_Declare(
     GIT_REPOSITORY https://github.com/g-truc/glm.git
     GIT_TAG        1.0.1 
 )
+
+FetchContent_Declare(
+    assimp
+    GIT_REPOSITORY https://github.com/assimp/assimp.git
+    GIT_TAG        v5.3.1 
+)
+
+set(ASSIMP_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+set(ASSIMP_BUILD_ASSIMP_TOOLS OFF CACHE BOOL "" FORCE)
+set(ASSIMP_BUILD_ZLIB ON CACHE BOOL "" FORCE)
+
+FetchContent_MakeAvailable(glfw glm assimp)
+
 find_package(OpenGL REQUIRED)
-
-
-FetchContent_MakeAvailable(glfw glm)
 
 add_executable(OpenGL_Demo 
     src/glad.c
@@ -32,22 +42,26 @@ add_executable(OpenGL_Demo
     src/texture.cpp
     src/camera.cpp
     src/mesh.cpp
+    src/board.cpp
+    src/importer.cpp
+    src/model.cpp
+    src/object.cpp
 )
 
 target_include_directories(OpenGL_Demo PUBLIC src include)
-target_link_libraries(OpenGL_Demo PRIVATE glfw glm)
+target_link_libraries(OpenGL_Demo PRIVATE glfw glm assimp)
 
-file(GLOB FILES "${CMAKE_SOURCE_DIR}/src/*.vert" "${CMAKE_SOURCE_DIR}/src/*.frag" "${CMAKE_SOURCE_DIR}/src/*.png")
 
-foreach(FILE ${FILES})
-    get_filename_component(NAME ${FILE} NAME)
-    add_custom_command(
-        TARGET OpenGL_Demo POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_if_different
-            ${FILE}
-            $<TARGET_FILE_DIR:OpenGL_Demo>/${NAME}
-    )
-endforeach()
+set(RESOURCE_DIR "${CMAKE_SOURCE_DIR}/resources")
+
+add_custom_command(TARGET OpenGL_Demo POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E remove_directory "$<TARGET_FILE_DIR:OpenGL_Demo>/resources"
+    COMMAND ${CMAKE_COMMAND} -E make_directory "$<TARGET_FILE_DIR:OpenGL_Demo>/resources"
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+        "${RESOURCE_DIR}"
+        "$<TARGET_FILE_DIR:OpenGL_Demo>/resources"
+    VERBATIM
+)
 
 
 if (WIN32)
