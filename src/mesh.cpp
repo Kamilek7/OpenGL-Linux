@@ -31,10 +31,17 @@ void Mesh::draw(Shaders& shader, Camera& camera, glm::mat4 matrix)
         std::string num;
         std::string type = textures[i].type;
         if (type=="diffuse")
-            num = std::to_string(numDiffuse++);
+        {
+            num = std::to_string(numDiffuse);
+            numDiffuse++;
+        }
         else if (type=="specular")
-            num = std::to_string(numSpecular++);
-        textures[i].texUnit(shader, (type+num).c_str(),1);
+        {
+            num = std::to_string(numSpecular);
+            numSpecular++;
+            
+        }
+        textures[i].texUnit(shader, (type+num).c_str(),i);
         textures[i].bind();
     }
 

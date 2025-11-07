@@ -88,7 +88,7 @@ std::vector<Texture> modelImporter::loadTextures(aiMaterial* mat, aiTextureType 
         aiString str;
         mat->GetTexture(type, i, &str);
         std::string name = str.C_Str();
-        if (name.find("C:")== std::string::npos)
+        if (name.find("/")== std::string::npos)
         {
             name = tempDir + name;
         }
@@ -105,8 +105,7 @@ std::vector<Texture> modelImporter::loadTextures(aiMaterial* mat, aiTextureType 
         }
         if (check)
         {   
-            const char *CCC = name.c_str();
-            Texture texture(CCC, typeName, unit++);
+            Texture texture(name.c_str(), typeName, unit++);
             textures.push_back(texture);
             loadedTex.push_back(texture);
             loadedNames.push_back(str.C_Str());

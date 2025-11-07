@@ -51,18 +51,12 @@ add_executable(OpenGL_Demo
 target_include_directories(OpenGL_Demo PUBLIC src include)
 target_link_libraries(OpenGL_Demo PRIVATE glfw glm assimp)
 
-
-set(RESOURCE_DIR "${CMAKE_SOURCE_DIR}/resources")
-
 add_custom_command(TARGET OpenGL_Demo POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E remove_directory "$<TARGET_FILE_DIR:OpenGL_Demo>/resources"
-    COMMAND ${CMAKE_COMMAND} -E make_directory "$<TARGET_FILE_DIR:OpenGL_Demo>/resources"
-    COMMAND ${CMAKE_COMMAND} -E copy_directory
-        "${RESOURCE_DIR}"
-        "$<TARGET_FILE_DIR:OpenGL_Demo>/resources"
+    COMMAND ${CMAKE_COMMAND} -E copy
+        "$<TARGET_FILE:OpenGL_Demo>"
+        "${CMAKE_SOURCE_DIR}/src/OpenGL_Demo${CMAKE_EXECUTABLE_SUFFIX}"
     VERBATIM
 )
-
 
 if (WIN32)
     target_link_libraries(OpenGL_Demo PRIVATE opengl32 gdi32 user32 shell32)

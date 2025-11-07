@@ -1,14 +1,24 @@
 #include "board.h"
 
+void resizeCallback(GLFWwindow* window, int width, int height)
+{
+	glViewport(0, 0, width, height);
+}
+
 GameComponents::GameComponents()
 {
-	glfwInit();
+	if (!glfwInit())
+	{
+		std::cerr << "GLFW init fault!";
+	}
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-	window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "OpenGL", NULL, NULL);
+	window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "OpenGL", nullptr, nullptr);
 	glfwMakeContextCurrent(window);
+	glfwSwapInterval(0);
 	gladLoadGL();
+	glfwSetFramebufferSizeCallback(window, resizeCallback);
 	glViewport(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
 	shaderProgram = Shaders("resources/shaders/default.vert", "resources/shaders/default.frag");
 	shaderProgram.useShader();
@@ -19,8 +29,8 @@ GameComponents::GameComponents()
 	glCullFace(GL_FRONT);
 	glFrontFace(GL_CW);
 	camera = Camera(glm::vec3(0.0f, 0.2f, 0.5f));
-	objects.push_back(new ingameObject("resources/sbunny/scene.gltf", &importer));
-	//objects.push_back(new ingameObject("resources/statue/scene.gltf", &importer));
+	objects.push_back(new ingameObject("resources/models/ball/ball.obj", &importer));
+	// objects.push_back(new ingameObject("resources/models/sbunny/scene.gltf", &importer));
 }
 
 void GameComponents::render()

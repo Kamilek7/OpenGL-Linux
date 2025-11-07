@@ -15,7 +15,7 @@ uniform mat4 model;
 void main()
 {
     pos = vec3(model * vec4(aPos, 1.0f));
-    normal=aNormal;
+    normal = mat3(transpose(inverse(model))) * aNormal;
     color = aColor;
     texCoord=aTex;
     gl_Position = camMatrix*vec4(pos, 1.0f);
