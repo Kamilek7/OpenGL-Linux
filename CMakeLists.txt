@@ -46,6 +46,7 @@ add_executable(OpenGL_Demo
     src/importer.cpp
     src/model.cpp
     src/object.cpp
+    src/ball.cpp
 )
 
 target_include_directories(OpenGL_Demo PUBLIC src include)

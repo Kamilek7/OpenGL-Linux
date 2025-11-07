@@ -4,6 +4,7 @@
 #include "model.h"
 class ingameObject
 {
+protected:
 	float time;
 	float mass;
 	glm::vec3 acc;
@@ -12,6 +13,6 @@ class ingameObject
 
 public:
 	ingameObject(const char* name, modelImporter *importer);
-	void process(float dt, Shaders& shader, Camera& camera);
+	virtual void process(float dt, Shaders& shader, Camera& camera);
 };
 #endif

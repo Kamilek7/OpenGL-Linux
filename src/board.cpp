@@ -29,7 +29,13 @@ GameComponents::GameComponents()
 	glCullFace(GL_FRONT);
 	glFrontFace(GL_CW);
 	camera = Camera(glm::vec3(0.0f, 0.2f, 0.5f));
-	objects.push_back(new ingameObject("resources/models/ball/ball.obj", &importer));
+	float offset = -3.0f;
+	for (int i=0; i<500;i++)
+	{
+
+		objects.push_back(new Ball(&importer, glm::vec3(0.0f,0.0f,offset), (rand()%50)/30.0f + 0.3, glm::vec3((rand()%50-25)/20.0f,(rand()%50-25)/20.0f,offset+ (rand()%50-25)/20.0f), glm::vec3((rand()%50-25)/25.0f, (rand()%50-25)/25.0f,(rand()%50-25)/25.0f)));
+	}
+	
 	// objects.push_back(new ingameObject("resources/models/sbunny/scene.gltf", &importer));
 }
 

@@ -1,7 +1,7 @@
 #ifndef BOARD_H
 #define BOARD_H
 	
-#include"object.h"
+#include"ball.h"
 
 class GameComponents
 {
