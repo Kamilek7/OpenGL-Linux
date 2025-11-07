@@ -5,6 +5,9 @@
 class ingameObject
 {
 	float time;
+	float mass;
+	glm::vec3 acc;
+	glm::vec3 vel;
 	glModel model;
 
 public:

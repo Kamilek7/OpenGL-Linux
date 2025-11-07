@@ -36,5 +36,5 @@ vec4 pointLight()
 
 void main()
 {
-	FragColor = pointLight()
+	FragColor = pointLight();
 }
