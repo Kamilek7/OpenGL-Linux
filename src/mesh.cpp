@@ -18,7 +18,7 @@ Mesh::Mesh(std::vector <Vertex>& verts, std::vector <GLuint> &inds, std::vector 
     ebo.unbind();
 }
 
-void Mesh::draw(Shaders& shader, Camera& camera, glm::mat4 matrix)
+void Mesh::draw(Shaders& shader, Camera& camera, glm::mat4 matrix, glm::vec3 defaultColor=glm::vec3(1.0f,1.0f,1.0f))
 {
     shader.useShader();
     vao.bind();
@@ -45,6 +45,7 @@ void Mesh::draw(Shaders& shader, Camera& camera, glm::mat4 matrix)
         textures[i].bind();
     }
 
+    glUniform3f(glGetUniformLocation(shader.getID(), "generatedColor"), defaultColor.x, defaultColor.y, defaultColor.z);
     glUniform3f(glGetUniformLocation(shader.getID(), "camPos"), camera.position.x, camera.position.y, camera.position.z);
     camera.matrix(shader, "camMatrix");
     glUniformMatrix4fv(glGetUniformLocation(shader.getID(), "model"), 1, GL_FALSE, glm::value_ptr(matrix));

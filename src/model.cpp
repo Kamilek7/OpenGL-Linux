@@ -14,9 +14,7 @@ void glModel::draw(Shaders& shader, Camera& camera)
 {
 	glm::mat4 modelMatrix = getMatrix();
 	for (unsigned int i = 0; i < meshes.size(); i++)
-	{
-		meshes[i].Mesh::draw(shader, camera, modelMatrix);
-	}
+		meshes[i].Mesh::draw(shader, camera, modelMatrix, defColor);
 }
 
 glm::mat4 glModel::getMatrix()

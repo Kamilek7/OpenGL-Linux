@@ -4,12 +4,28 @@
 
 void modelImporter::loadModel(const char* file)
 {
-	scene = importer.ReadFile(file, aiProcess_Triangulate | aiProcess_GenSmoothNormals | aiProcess_JoinIdenticalVertices);
-	fileStr = std::string(file);
-	dir = fileStr.substr(0, fileStr.find_last_of('/'));
-	
-    crawlNodes(scene->mRootNode);
+    fileStr = std::string(file);
+    dir = fileStr.substr(0, fileStr.find_last_of('/'));
 
+    int found = -1;
+    for (int i=0;i<loadedModels.size();i++)
+    {
+        if (dir==loadedModels[i])
+        {
+            found=i;
+            break;
+        }
+    }
+
+    if (found!=-1)
+        this->meshes=loadedMeshes[found];
+    else
+    {
+        scene = importer.ReadFile(file, aiProcess_Triangulate | aiProcess_GenSmoothNormals | aiProcess_JoinIdenticalVertices);
+        crawlNodes(scene->mRootNode);
+        loadedModels.push_back(dir);
+        loadedMeshes.push_back(this->meshes);
+    }
 }
 
 void modelImporter::crawlNodes(aiNode* node)

@@ -7,9 +7,9 @@ class Ball : public ingameObject
 {
     glm::vec3 center;
     // Ograniczenie zakłoceń spowodowanych wykorzystaniem modelu matematycznego
-    float epsilon = 0.1f;
+    float border;
     public:
-    Ball(modelImporter *importer, glm::vec3 center, float size, glm::vec3 position, glm::vec3 velocity);
+    Ball(modelImporter *importer, glm::vec3 center, float size, glm::vec3 position, glm::vec3 velocity,glm::vec3 color, float border);
     void process(float dt, Shaders& shader, Camera& camera);
 };
 

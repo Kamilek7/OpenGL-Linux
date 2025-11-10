@@ -9,12 +9,16 @@ class modelImporter
 {
 	const aiScene* scene;
 	Assimp::Importer importer;
+
 	std::vector<Mesh> meshes;
 	std::string fileStr;
 	std::string dir;
 
 	std::vector <std::string> loadedNames;
 	std::vector <Texture> loadedTex;
+
+	std::vector<std::string> loadedModels;
+	std::vector<std::vector <Mesh>> loadedMeshes;
 
 	void crawlNodes(aiNode* node);
 	Mesh fillMesh(aiMesh* mesh);

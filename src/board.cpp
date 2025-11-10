@@ -23,19 +23,27 @@ GameComponents::GameComponents()
 	shaderProgram = Shaders("resources/shaders/default.vert", "resources/shaders/default.frag");
 	shaderProgram.useShader();
 	glUniform4f(glGetUniformLocation(shaderProgram.getID(), "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
-	glUniform3f(glGetUniformLocation(shaderProgram.getID(), "lightPos"), lightPos.x, lightPos.y, lightPos.z);
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
 	glCullFace(GL_FRONT);
 	glFrontFace(GL_CW);
 	camera = Camera(glm::vec3(0.0f, 0.2f, 0.5f));
-	float offset = -3.0f;
-	for (int i=0; i<500;i++)
+
+	int randCount = 50;
+	float offset = -10.0f;
+	float border = 4.0f;
+
+	float division = (float)(randCount/2)/(border-0.1f);
+	float speedDiv = 45.0f;
+	glUniform3f(glGetUniformLocation(shaderProgram.getID(), "lightPos"), 0.0f, 0.0f, offset);
+	
+	for (int i=0; i<1000;i++)
 	{
 
-		objects.push_back(new Ball(&importer, glm::vec3(0.0f,0.0f,offset), (rand()%50)/30.0f + 0.3, glm::vec3((rand()%50-25)/20.0f,(rand()%50-25)/20.0f,offset+ (rand()%50-25)/20.0f), glm::vec3((rand()%50-25)/25.0f, (rand()%50-25)/25.0f,(rand()%50-25)/25.0f)));
+		objects.push_back(new Ball(&importer, glm::vec3(0.0f,0.0f,offset), (rand()%randCount)/10.0f + 0.3, glm::vec3((rand()%randCount-randCount/2)/division,(rand()%randCount-randCount/2)/division,offset+ (rand()%randCount-randCount/2)/division), glm::vec3((rand()%randCount-randCount/2)/speedDiv, (rand()%randCount-randCount/2)/speedDiv,(rand()%randCount-randCount/2)/speedDiv),glm::vec3((rand()%255)/255.0f, (rand()%255)/255.0f,(rand()%255)/255.0f), border));
 	}
-	
+
+
 	// objects.push_back(new ingameObject("resources/models/sbunny/scene.gltf", &importer));
 }
 
