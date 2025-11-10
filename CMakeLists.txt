@@ -31,23 +31,8 @@ FetchContent_MakeAvailable(glfw glm assimp)
 
 find_package(OpenGL REQUIRED)
 
-add_executable(OpenGL_Demo 
-    src/glad.c
-    src/main.cpp
-    src/shaders.cpp
-    src/VBO.cpp
-    src/EBO.cpp
-    src/VAO.cpp
-    src/stb_image.cpp
-    src/texture.cpp
-    src/camera.cpp
-    src/mesh.cpp
-    src/board.cpp
-    src/importer.cpp
-    src/model.cpp
-    src/object.cpp
-    src/ball.cpp
-)
+file(GLOB SRCS "src/*.cpp" "src/*.c")
+add_executable(OpenGL_Demo ${SRCS})
 
 target_include_directories(OpenGL_Demo PUBLIC src include)
 target_link_libraries(OpenGL_Demo PRIVATE glfw glm assimp)
@@ -61,9 +46,6 @@ add_custom_command(TARGET OpenGL_Demo POST_BUILD
 
 if (WIN32)
     target_link_libraries(OpenGL_Demo PRIVATE opengl32 gdi32 user32 shell32)
-elseif(APPLE)
-    find_library(OpenGL_LIB OpenGL)
-    target_link_libraries(OpenGL_Demo PRIVATE ${OpenGL_LIB})
 else()
     target_link_libraries(OpenGL_Demo PRIVATE OpenGL::GL)
 endif()

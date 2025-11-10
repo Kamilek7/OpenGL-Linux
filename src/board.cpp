@@ -1,8 +1,13 @@
 #include "board.h"
 
+unsigned int WINDOW_WIDTH = 800;
+unsigned int WINDOW_HEIGHT = 800;
+
 void resizeCallback(GLFWwindow* window, int width, int height)
 {
 	glViewport(0, 0, width, height);
+	WINDOW_HEIGHT=height;
+	WINDOW_WIDTH=width;
 }
 
 GameComponents::GameComponents()
