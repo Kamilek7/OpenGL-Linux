@@ -2,6 +2,8 @@
 #define BOARD_H
 	
 #include"ball.h"
+#include <thread>
+#include <chrono>
 
 class GameComponents
 {

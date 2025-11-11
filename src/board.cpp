@@ -59,12 +59,7 @@ void GameComponents::render()
 	glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	camera.updateMat(45.0f, 0.1f, 100.0f, WINDOW_WIDTH, WINDOW_HEIGHT);
-	while (duration <= fpsTime)
-	{
-		current = glfwGetTime();
-		duration = current - previousTime;
-	}
-	duration = 0;
+
 	for (int i = 0; i < objects.size(); i++)
 	{
 		objects[i]->process(fpsTime, shaderProgram, camera);
@@ -72,6 +67,13 @@ void GameComponents::render()
 	camera.inputs(window, WINDOW_WIDTH, WINDOW_HEIGHT);
 	Clock += (float)fpsTime;
 	glfwSwapBuffers(window);
+	duration = glfwGetTime() - previousTime;
+
+	if ( duration< fpsTime)
+	{
+		double remaining = (fpsTime - duration) * 1000.0;
+        std::this_thread::sleep_for(std::chrono::milliseconds((int)remaining));
+	}
 	previousTime = glfwGetTime();
 }
 
