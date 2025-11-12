@@ -6,6 +6,7 @@
 class Ball : public ingameObject
 {
     glm::vec3 center;
+    float size;
     // Ograniczenie zakłoceń spowodowanych wykorzystaniem modelu matematycznego
     float border;
     public:
