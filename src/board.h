@@ -15,6 +15,8 @@ class GameComponents
 	Camera camera;
 	std::vector <ingameObject*> objects;
 
+	bool buttonPressFlag = true;
+	bool forces = false;
 	double previousTime = 0;
 	double duration = 0;
 	double Clock = 0;
@@ -25,6 +27,7 @@ public:
 
 	GameComponents();
 	
+	void inputs();
 	void render();
 	void end();
 };

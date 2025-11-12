@@ -4,7 +4,7 @@ glm::vec3 forceF(glm::vec3 R)
 {
     float magnitude = glm::length(R);
     float epsilon = 0.2f;
-    return -R/(float)(pow(magnitude* magnitude + epsilon*epsilon, 1.0f));
+    return -R/(float)(pow(magnitude + epsilon, 3.0f));
 }
 
 
@@ -15,29 +15,31 @@ Ball::Ball(modelImporter *importer, glm::vec3 center, float size, glm::vec3 posi
     this->mass = (size*size*size)/100.0f;
     this->model.scale = glm::vec3(0.01f,0.01f,0.01f)*size;
     this->model.translation = position;
-	this->acc = forceF(this->model.translation - this->center)/mass;
+	this->acc = glm::vec3(0.0f,0.0f,0.0f);
     this->vel=velocity;
     this->model.defColor = color;
 }
 
-void Ball::process(float dt, Shaders& shader, Camera& camera)
+void Ball::process(float dt, Shaders& shader, Camera& camera, bool forces)
 {
-	this->acc = forceF(this->model.translation - this->center)/mass;
-
+    if (forces)
+	    this->acc = forceF(this->model.translation - this->center)/mass;
+    else
+        this->acc = glm::vec3(0.0f,0.0f,0.0f);
     for (int i=0; i<3; i++)
     {
         if (this->model.translation[i] > center[i]+border)
         {
-            this->vel[i] = -abs(this->vel[i]);
+            this->vel[i] = -this->vel[i];
             this->model.translation[i] = (center[i]+border);
         }
         if (this->model.translation[i] < center[i]-border)
         {
-            this->vel[i] = abs(this->vel[i]);
+            this->vel[i] = -this->vel[i];
             this->model.translation[i] = (center[i]-border);
         }
     }
 
-    ingameObject::process(dt, shader, camera);
+    ingameObject::process(dt, shader, camera, forces);
 
 }

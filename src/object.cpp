@@ -10,7 +10,7 @@ ingameObject::ingameObject(const char* name, modelImporter* importer)
 	this->acc = glm::vec3(0.0f,0.0f,0.0f);
 }
 
-void ingameObject::process(float dt, Shaders& shader, Camera &camera)
+void ingameObject::process(float dt, Shaders& shader, Camera &camera, bool forces)
 {
 	this->time += dt;
 	this->vel+= dt*acc;

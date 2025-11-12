@@ -42,7 +42,7 @@ GameComponents::GameComponents()
 	float speedDiv = 45.0f;
 	glUniform3f(glGetUniformLocation(shaderProgram.getID(), "lightPos"), 0.0f, 0.0f, offset);
 	
-	for (int i=0; i<1000;i++)
+	for (int i=0; i<50000;i++)
 	{
 
 		objects.push_back(new Ball(&importer, glm::vec3(0.0f,0.0f,offset), (rand()%randCount)/10.0f + 0.3, glm::vec3((rand()%randCount-randCount/2)/division,(rand()%randCount-randCount/2)/division,offset+ (rand()%randCount-randCount/2)/division), glm::vec3((rand()%randCount-randCount/2)/speedDiv, (rand()%randCount-randCount/2)/speedDiv,(rand()%randCount-randCount/2)/speedDiv),glm::vec3((rand()%255)/255.0f, (rand()%255)/255.0f,(rand()%255)/255.0f), border));
@@ -52,6 +52,22 @@ GameComponents::GameComponents()
 	// objects.push_back(new ingameObject("resources/models/sbunny/scene.gltf", &importer));
 }
 
+void GameComponents::inputs()
+{
+	
+	if (glfwGetKey(window, GLFW_KEY_G) == GLFW_PRESS && buttonPressFlag)
+	{
+		forces = !forces;
+		buttonPressFlag = false;
+	}
+	if (glfwGetKey(window, GLFW_KEY_G) == GLFW_RELEASE && !buttonPressFlag)
+	{
+		buttonPressFlag = true;
+	}
+
+	camera.inputs(window, WINDOW_WIDTH, WINDOW_HEIGHT);
+}
+
 void GameComponents::render()
 {
 
@@ -59,12 +75,13 @@ void GameComponents::render()
 	glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	camera.updateMat(45.0f, 0.1f, 100.0f, WINDOW_WIDTH, WINDOW_HEIGHT);
-
 	for (int i = 0; i < objects.size(); i++)
 	{
-		objects[i]->process(fpsTime, shaderProgram, camera);
+		// Brany jest fpsLimit albo czas renderu poprzedniej klatki, nie jest to idealne ale dziala
+		objects[i]->process(std::max(fpsTime, duration), shaderProgram, camera, forces);
 	}
-	camera.inputs(window, WINDOW_WIDTH, WINDOW_HEIGHT);
+	this->inputs();
+	// Jak na razie nie jest potrzebny ale moze sie przydac w przyszlosci
 	Clock += (float)fpsTime;
 	glfwSwapBuffers(window);
 	duration = glfwGetTime() - previousTime;
