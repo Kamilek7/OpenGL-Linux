@@ -45,7 +45,7 @@ GameComponents::GameComponents()
 	for (int i=0; i<1000;i++)
 	{
 
-		objects.push_back(new Ball(&importer, glm::vec3(0.0f,0.0f,offset), (rand()%randCount)/10.0f + 0.3, glm::vec3((rand()%randCount-randCount/2)/division,(rand()%randCount-randCount/2)/division,offset+ (rand()%randCount-randCount/2)/division), glm::vec3((rand()%randCount-randCount/2)/speedDiv, (rand()%randCount-randCount/2)/speedDiv,(rand()%randCount-randCount/2)/speedDiv),glm::vec3((rand()%255)/255.0f, (rand()%255)/255.0f,(rand()%255)/255.0f), border));
+		objects.push_back(new Ball(&importer, glm::vec3(0.0f,0.0f,offset), (rand()%randCount)/10.0f + 0.3, glm::vec3((rand()%randCount-randCount/2)/division,(rand()%randCount-randCount/2)/division,offset+ (rand()%randCount-randCount/2)/division), glm::vec3((1-2*rand()%2)*(rand()%randCount+1)/speedDiv, (1-2*rand()%2)*(rand()%randCount+1)/speedDiv,(1-2*rand()%2)*(rand()%randCount+1)/speedDiv),glm::vec3((rand()%255)/255.0f, (rand()%255)/255.0f,(rand()%255)/255.0f), border));
 	}
 
 
@@ -78,7 +78,7 @@ void GameComponents::render()
 	for (int i = 0; i < objects.size(); i++)
 	{
 		// Brany jest fpsLimit albo czas renderu poprzedniej klatki, nie jest to idealne ale dziala
-		objects[i]->process(std::max(fpsTime, duration), shaderProgram, camera, forces);
+		objects[i]->process(std::max(fpsTime, 0.0), shaderProgram, camera, forces);
 	}
 	this->inputs();
 	// Jak na razie nie jest potrzebny ale moze sie przydac w przyszlosci
