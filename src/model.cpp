@@ -8,6 +8,7 @@ glModel::glModel(const char* filer, modelImporter* importer)
 	translation = glm::vec3(0.0f, 0.0f, 0.0f);
 	rotation = glm::quat(1.0f, 0.0f, 0.0f, 0.0f);
 	scale = glm::vec3(1.0f, 1.0f, 1.0f);
+	defColor = glm::vec3(0.0f,0.0f,0.0f);
 }
 
 void glModel::draw(Shaders& shader, Camera& camera)

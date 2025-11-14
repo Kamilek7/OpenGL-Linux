@@ -4,7 +4,9 @@
 #include"ball.h"
 #include <thread>
 #include <chrono>
-
+#include <imgui.h>
+#include <backends/imgui_impl_glfw.h>
+#include <backends/imgui_impl_opengl3.h>
 class GameComponents
 {
 	unsigned int MAX_FPS = 120;

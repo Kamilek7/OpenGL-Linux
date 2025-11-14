@@ -1,5 +1,5 @@
-#ifndef VBO_H
-#define VBO_H
+#ifndef VBOSelbst_H
+#define VBOSelbst_H
 
 #include <glm/glm.hpp>
 #include <glad/glad.h>

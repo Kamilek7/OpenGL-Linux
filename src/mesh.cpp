@@ -18,7 +18,7 @@ Mesh::Mesh(std::vector <Vertex>& verts, std::vector <GLuint> &inds, std::vector 
     ebo.unbind();
 }
 
-void Mesh::draw(Shaders& shader, Camera& camera, glm::mat4 matrix, glm::vec3 defaultColor=glm::vec3(1.0f,1.0f,1.0f))
+void Mesh::draw(Shaders& shader, Camera& camera, glm::mat4 matrix, glm::vec3 defaultColor)
 {
     shader.useShader();
     vao.bind();
