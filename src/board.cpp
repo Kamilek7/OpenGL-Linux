@@ -103,8 +103,10 @@ void GameComponents::render()
 	ImGui_ImplGlfw_NewFrame();
 	ImGui::NewFrame();
 
-	ImGui::Begin("Example");
-	ImGui::Text("Hello, world!");
+	ImGui::Begin("Ustawienia");
+	ImGui::Text("Sily:");
+	ImGui::Checkbox("Grawitacja", &gravity);
+	ImGui::Checkbox("Opor aerodynamiczny", &aero);
 	ImGui::End();
 
 	ImGui::Render();
