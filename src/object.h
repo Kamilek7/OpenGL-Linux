@@ -13,6 +13,6 @@ protected:
 
 public:
 	ingameObject(const char* name, modelImporter *importer);
-	virtual void process(float dt, Shaders& shader, Camera& camera, bool forces);
+	virtual void process(float dt, Shaders& shader, Camera& camera, bool gravity, bool aero);
 };
 #endif

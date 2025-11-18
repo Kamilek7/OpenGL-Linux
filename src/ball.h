@@ -11,7 +11,7 @@ class Ball : public ingameObject
     float border;
     public:
     Ball(modelImporter *importer, glm::vec3 center, float size, glm::vec3 position, glm::vec3 velocity,glm::vec3 color, float border);
-    void process(float dt, Shaders& shader, Camera& camera, bool forces);
+    void process(float dt, Shaders& shader, Camera& camera, bool gravity, bool aero);
 };
 
 #endif

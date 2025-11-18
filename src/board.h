@@ -18,7 +18,9 @@ class GameComponents
 	std::vector <ingameObject*> objects;
 
 	bool buttonPressFlag = true;
-	bool forces = false;
+	bool HbuttonPressFlag = true;
+	bool gravity = false;
+	bool aero = false;
 	double previousTime = 0;
 	double duration = 0;
 	double Clock = 0;

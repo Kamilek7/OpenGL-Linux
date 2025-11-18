@@ -63,12 +63,22 @@ void GameComponents::inputs()
 	
 	if (glfwGetKey(window, GLFW_KEY_G) == GLFW_PRESS && buttonPressFlag)
 	{
-		forces = !forces;
+		gravity = !gravity;
 		buttonPressFlag = false;
 	}
 	if (glfwGetKey(window, GLFW_KEY_G) == GLFW_RELEASE && !buttonPressFlag)
 	{
 		buttonPressFlag = true;
+	}
+
+	if (glfwGetKey(window, GLFW_KEY_H) == GLFW_PRESS && HbuttonPressFlag)
+	{
+		aero = !aero;
+		HbuttonPressFlag = false;
+	}
+	if (glfwGetKey(window, GLFW_KEY_H) == GLFW_RELEASE && !HbuttonPressFlag)
+	{
+		HbuttonPressFlag = true;
 	}
 
 	camera.inputs(window, WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -84,7 +94,7 @@ void GameComponents::render()
 	for (int i = 0; i < objects.size(); i++)
 	{
 		// Brany jest fpsLimit albo czas renderu poprzedniej klatki, nie jest to idealne ale dziala
-		objects[i]->process(std::max(fpsTime, 0.0), shaderProgram, camera, forces);
+		objects[i]->process(std::max(fpsTime, 0.0), shaderProgram, camera, gravity, aero);
 	}
 	this->inputs();
 	// Jak na razie nie jest potrzebny ale moze sie przydac w przyszlosci
