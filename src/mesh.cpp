@@ -18,9 +18,9 @@ Mesh::Mesh(std::vector <Vertex>& verts, std::vector <GLuint> &inds, std::vector 
     ebo.unbind();
 }
 
-void Mesh::draw(Shaders& shader, Camera& camera, glm::mat4 matrix, glm::vec3 defaultColor)
+void Mesh::draw(Shaders* shader, Camera* camera, glm::mat4 matrix, glm::vec3 defaultColor)
 {
-    shader.useShader();
+    shader->useShader();
     vao.bind();
 
     unsigned int numDiffuse = 0;
@@ -45,10 +45,10 @@ void Mesh::draw(Shaders& shader, Camera& camera, glm::mat4 matrix, glm::vec3 def
         textures[i].bind();
     }
 
-    glUniform3f(glGetUniformLocation(shader.getID(), "generatedColor"), defaultColor.x, defaultColor.y, defaultColor.z);
-    glUniform3f(glGetUniformLocation(shader.getID(), "camPos"), camera.position.x, camera.position.y, camera.position.z);
-    camera.matrix(shader, "camMatrix");
-    glUniformMatrix4fv(glGetUniformLocation(shader.getID(), "model"), 1, GL_FALSE, glm::value_ptr(matrix));
+    glUniform3f(glGetUniformLocation(shader->getID(), "generatedColor"), defaultColor.x, defaultColor.y, defaultColor.z);
+    glUniform3f(glGetUniformLocation(shader->getID(), "camPos"), camera->position.x, camera->position.y, camera->position.z);
+    camera->matrix(shader, "camMatrix");
+    glUniformMatrix4fv(glGetUniformLocation(shader->getID(), "model"), 1, GL_FALSE, glm::value_ptr(matrix));
     glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
 
 }

@@ -13,6 +13,12 @@ protected:
 
 public:
 	ingameObject(const char* name, modelImporter *importer);
-	virtual void process(float dt, Shaders& shader, Camera& camera, bool gravity, bool aero);
+	void applyForce(glm::vec3 force);
+	void resetForce();
+	glm::vec3 getVelocity();
+	virtual void process(float dt, Shaders* shader, Camera* camera);
+	virtual glm::vec3 getMagnitudeFromCenter();
+	virtual float getSize();
+	
 };
 #endif

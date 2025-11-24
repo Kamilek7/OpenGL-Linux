@@ -32,10 +32,10 @@ Texture::Texture(const char* image, const char* texType, GLuint slot)
 	glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-void Texture::texUnit(Shaders& shader, const char* uniform, GLuint unit)
+void Texture::texUnit(Shaders* shader, const char* uniform, GLuint unit)
 {
-	GLuint texUni = glGetUniformLocation(shader.getID(), uniform);
-	shader.useShader();
+	GLuint texUni = glGetUniformLocation(shader->getID(), uniform);
+	shader->useShader();
 	glUniform1i(texUni, unit);
 }
 

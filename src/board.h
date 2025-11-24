@@ -1,12 +1,11 @@
 #ifndef BOARD_H
 #define BOARD_H
 	
-#include"ball.h"
+#include "physics.h"
+#include "GUIDrawn.h"
 #include <thread>
 #include <chrono>
-#include <imgui.h>
-#include <backends/imgui_impl_glfw.h>
-#include <backends/imgui_impl_opengl3.h>
+
 class GameComponents
 {
 	unsigned int MAX_FPS = 120;
@@ -15,16 +14,16 @@ class GameComponents
 	Shaders shaderProgram;
 	glm::vec4 lightColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 	Camera camera;
-	std::vector <ingameObject*> objects;
-
-	bool buttonPressFlag = true;
-	bool HbuttonPressFlag = true;
+	PhysicsModule physics;
+	GuiModule GUI;
+	
 	bool gravity = false;
 	bool aero = false;
 	double previousTime = 0;
 	double duration = 0;
 	double Clock = 0;
 	double current = 0;
+
 
 public:
 	GLFWwindow* window;

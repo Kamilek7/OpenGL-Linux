@@ -11,7 +11,7 @@ glModel::glModel(const char* filer, modelImporter* importer)
 	defColor = glm::vec3(0.0f,0.0f,0.0f);
 }
 
-void glModel::draw(Shaders& shader, Camera& camera)
+void glModel::draw(Shaders* shader, Camera* camera)
 {
 	glm::mat4 modelMatrix = getMatrix();
 	for (unsigned int i = 0; i < meshes.size(); i++)

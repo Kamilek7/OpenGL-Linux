@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 project(OpenGL_Demo)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(FetchContent)
@@ -49,7 +49,7 @@ FetchContent_MakeAvailable(glfw glm assimp imgui glad stb)
 
 find_package(OpenGL REQUIRED)
 
-file(GLOB SRCS "src/*.cpp" "src/*.c")
+file(GLOB SRCS CONFIGURE_DEPENDS "src/*.cpp" "src/*.c")
 add_executable(OpenGL_Demo ${SRCS})
 
 target_include_directories(OpenGL_Demo PRIVATE

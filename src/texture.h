@@ -14,7 +14,7 @@ public:
 	GLuint unit;
 
 	Texture(const char* file, const char* texType, GLuint slot);
-	void texUnit(Shaders& shader, const char* uniform, GLuint unit);
+	void texUnit(Shaders* shader, const char* uniform, GLuint unit);
 	void bind();
 	void unbind();
 	void remove();

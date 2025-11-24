@@ -16,7 +16,7 @@ class Mesh
     VAO vao;
 
     Mesh(std::vector <Vertex>& verts, std::vector <GLuint> &inds, std::vector <Texture> &texts);
-    void draw(Shaders& shader, Camera& camera, glm::mat4 model, glm::vec3 defaultColor);
+    void draw(Shaders* shader, Camera* camera, glm::mat4 model, glm::vec3 defaultColor);
 };
 
 #endif

@@ -16,10 +16,10 @@ void Camera::updateMat(float FOVdeg, float nearPlane, float farPlane, int width,
 	camMatrix = proj*view;
 }
 
-void Camera::matrix(Shaders& shader, const char* uniform )
+void Camera::matrix(Shaders* shader, const char* uniform )
 {
 
-	 glUniformMatrix4fv(glGetUniformLocation(shader.getID(), uniform), 1, GL_FALSE, glm::value_ptr(camMatrix));
+	 glUniformMatrix4fv(glGetUniformLocation(shader->getID(), uniform), 1, GL_FALSE, glm::value_ptr(camMatrix));
 }
 
 void Camera::inputs(GLFWwindow* window, int width, int height)

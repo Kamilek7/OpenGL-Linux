@@ -28,7 +28,7 @@ public:
     Camera(glm::vec3 position);
 
     void updateMat(float FOVdeg, float nearPlane, float farPlane, int width, int height);
-    void matrix(Shaders& shader, const char* uniform);
+    void matrix(Shaders* shader, const char* uniform);
     void inputs(GLFWwindow* window, int width, int height);
 };
 

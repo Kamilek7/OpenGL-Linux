@@ -9,7 +9,7 @@ class glModel
 public:
 	glModel() {};
 	glModel(const char* filer, modelImporter* importer);
-	void draw(Shaders& shader, Camera& camera);
+	void draw(Shaders* shader, Camera* camera);
 	glm::mat4 getMatrix();
 	// w razie gdyby tekstury nie dzialaly
 	glm::vec3 defColor;
