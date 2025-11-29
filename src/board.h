@@ -17,8 +17,6 @@ class GameComponents
 	PhysicsModule physics;
 	GuiModule GUI;
 	
-	bool gravity = false;
-	bool aero = false;
 	double previousTime = 0;
 	double duration = 0;
 	double Clock = 0;

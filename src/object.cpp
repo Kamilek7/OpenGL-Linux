@@ -10,7 +10,7 @@ ingameObject::ingameObject(const char* name, modelImporter* importer)
 	this->acc = glm::vec3(0.0f,0.0f,0.0f);
 }
 
-glm::vec3 ingameObject::getMagnitudeFromCenter()
+glm::vec3 ingameObject::getMagnitudeFromCenter(glm::vec3 center)
 {
 	return glm::vec3(1.0f, 0.0f, 0.0f);
 }

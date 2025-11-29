@@ -1,10 +1,8 @@
 #include "ball.h"
 
 
-Ball::Ball(modelImporter *importer, glm::vec3 center, float size, glm::vec3 position, glm::vec3 velocity, glm::vec3 color, float border) : ingameObject("resources/models/ball/ball.obj", importer)
+Ball::Ball(modelImporter *importer, float size, glm::vec3 position, glm::vec3 velocity, glm::vec3 color) : ingameObject("resources/models/ball/ball.obj", importer)
 {
-    this->center = center;
-    this->border = border;
     this->size = size;
     this->mass = (size*size*size)/1000.0f;
     this->model.scale = glm::vec3(0.01f,0.01f,0.01f)*size;
@@ -18,14 +16,13 @@ float Ball::getSize()
     return this->size;
 }
 
-glm::vec3 Ball::getMagnitudeFromCenter()
+glm::vec3 Ball::getMagnitudeFromCenter(glm::vec3 center)
 {
-    return (this->model.translation - this->center);
+    return (this->model.translation - center);
 }
 
-void Ball::process(float dt, Shaders* shader, Camera* camera)
+void Ball::checkCollisionWithDomain(glm::vec3 center, float border)
 {
-
     for (int i=0; i<3; i++)
     {
         // Promien tej kuli wynosi 0.01 i jest skalowany przez size
@@ -40,6 +37,10 @@ void Ball::process(float dt, Shaders* shader, Camera* camera)
             vel[i] = -vel[i];
         }
     }
+}
+
+void Ball::process(float dt, Shaders* shader, Camera* camera)
+{
 
     ingameObject::process(dt, shader, camera);
 

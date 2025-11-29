@@ -17,8 +17,9 @@ public:
 	void resetForce();
 	glm::vec3 getVelocity();
 	virtual void process(float dt, Shaders* shader, Camera* camera);
-	virtual glm::vec3 getMagnitudeFromCenter();
+	virtual glm::vec3 getMagnitudeFromCenter(glm::vec3 center);
 	virtual float getSize();
+	virtual void checkCollisionWithDomain(glm::vec3 center, float border) {}
 	
 };
 #endif

@@ -11,7 +11,7 @@ GuiModule::GuiModule(GLFWwindow* window)
     ImGui_ImplOpenGL3_Init("#version 330 core");
 }
 
-void GuiModule::draw(bool* gravity, bool* aero)
+void GuiModule::draw(PhysicsModule* physics)
 {
     ImGui_ImplOpenGL3_NewFrame();
 	ImGui_ImplGlfw_NewFrame();
@@ -19,8 +19,8 @@ void GuiModule::draw(bool* gravity, bool* aero)
 
 	ImGui::Begin("Ustawienia");
 	ImGui::Text("Sily:");
-	ImGui::Checkbox("Grawitacja", gravity);
-	ImGui::Checkbox("Opor aerodynamiczny", aero);
+	ImGui::Checkbox("Grawitacja", &(physics->gravity));
+	ImGui::Checkbox("Opor aerodynamiczny", &(physics->aero));
 	ImGui::End();
 
 	ImGui::Render();
