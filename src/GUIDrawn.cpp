@@ -18,9 +18,41 @@ void GuiModule::draw(PhysicsModule* physics)
 	ImGui::NewFrame();
 
 	ImGui::Begin("Ustawienia");
-	ImGui::Text("Sily:");
-	ImGui::Checkbox("Grawitacja", &(physics->gravity));
-	ImGui::Checkbox("Opor aerodynamiczny", &(physics->aero));
+	if (ImGui::CollapsingHeader("Sily"))
+	{
+		ImGui::Checkbox("Grawitacja", &(physics->gravity));
+		ImGui::Checkbox("Opor aerodynamiczny", &(physics->aero));
+		ImGui::SliderFloat("Potega stalej oporu aerodyn.", &physics->mu, -3.0f,-5.0f);
+	}
+
+	if (ImGui::CollapsingHeader("Punkty przyciagania grawitacyjnego"))
+	{
+		for (int i=0; i<physics->gravityPoints.size(); i++)
+		{
+
+			if (ImGui::TreeNode(("Punkt " +  std::to_string(i+1)).c_str()))
+			{
+				ImGui::SliderFloat("Polozenie X", &physics->gravityPoints[i].x, -physics->borderOfDomain, physics->borderOfDomain);
+				ImGui::SliderFloat("Polozenie Y", &physics->gravityPoints[i].y, -physics->borderOfDomain, physics->borderOfDomain);
+				ImGui::SliderFloat("Polozenie Z", &physics->gravityPoints[i].z, -physics->borderOfDomain-10, physics->borderOfDomain-10);
+				
+				ImGui::TreePop();
+            	ImGui::Spacing();
+			}
+
+		}
+		if(ImGui::Button("Dodaj nowy punkt"))
+		{
+				physics->addNewGravityCenter(glm::vec3(0.0f,0.0f,-10.0f));
+		}
+	}
+	if (ImGui::CollapsingHeader("Box collision"))
+	{
+		ImGui::SliderFloat("Polozenie X", &physics->centerOfDomain.x, -10, 10);
+		ImGui::SliderFloat("Polozenie Y", &physics->centerOfDomain.y, -10, 10);
+		ImGui::SliderFloat("Polozenie Z", &physics->centerOfDomain.z, -20, 0);
+		ImGui::SliderFloat("Szerokosc polowy boku", &physics->borderOfDomain, 1, 10);
+	}
 	ImGui::End();
 
 	ImGui::Render();

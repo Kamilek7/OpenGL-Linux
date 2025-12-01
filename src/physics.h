@@ -4,10 +4,7 @@
 #include"ball.h"
 class PhysicsModule
 {
-    std::vector <glm::vec3> gravityPoints;
     std::vector <ingameObject*> objects;
-    float borderOfDomain;
-    glm::vec3 centerOfDomain;
     void applyForceGrav(ingameObject* object);
     void applyForceAeroDyn(ingameObject* object);
 public:
@@ -17,6 +14,10 @@ public:
     void addNewGravityCenter(glm::vec3 pos);
     bool gravity = false;
 	bool aero = false;
+    float mu = -4.0f;
+    float borderOfDomain;
+    glm::vec3 centerOfDomain;
+    std::vector <glm::vec3> gravityPoints;
 
 };
 

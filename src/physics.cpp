@@ -15,8 +15,7 @@ void PhysicsModule::applyForceGrav(ingameObject* object)
 
 void PhysicsModule::applyForceAeroDyn(ingameObject* object)
 {
-    float mu = 0.0001f;
-    object->applyForce(-6.0f*object->getVelocity()*mu*object->getSize()*(float)(std::numbers::pi));
+    object->applyForce(-6.0f*object->getVelocity()*(float)(pow(10,mu))*object->getSize()*(float)(std::numbers::pi));
 }
 
 
